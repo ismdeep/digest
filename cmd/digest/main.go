@@ -7,15 +7,22 @@ import (
 	"github.com/ismdeep/digest"
 )
 
+func help() {
+	fmt.Println(`Usage: digest <password>
+
+ABOUT:
+    Repo: https://github.com/ismdeep/digest`)
+}
+
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: digest-gen <password>")
+		help()
 		return
 	}
 
 	switch os.Args[1] {
 	case "-h", "--help":
-		fmt.Println("Usage: digest-gen <password>")
+		help()
 	default:
 		fmt.Println(digest.Generate(os.Args[1]))
 	}
